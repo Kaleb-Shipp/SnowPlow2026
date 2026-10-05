@@ -50,9 +50,11 @@ class PointCloudSubscriber(Node):
         #Search all coords to find cones
         filtered_points = []
         prev_in_range = False
+        angle = 0
+        filtered_angles = []
 
         for i in range(len(x_coords)):
-            in_range = (0 < y_coords[i] < 6.5) and (0 < x_coords[i] < 10)
+            in_range = (0 < y_coords[i] < 6.5) and (0 < x_coords[i] < 8.6) #at most there should never be any more then 8.6m from snowplow when we start
 
             if in_range and not prev_in_range:
                 filtered_points.append((x_coords[i], y_coords[i]))
